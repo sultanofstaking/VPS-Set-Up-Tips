@@ -9,20 +9,18 @@
     * https://dzone.com/articles/13-ways-to-secure-your-cloud-vps 
 * Secure SSH
     * https://medium.com/bld-nodes/securing-ssh-access-to-your-server-cc1324b9adf6 
-* Courses: https://acloudguru.com/browse-training?vendors%5B%5D=amazon-web-services&vendors%5B%5D=linux&role%5B%5D=sys-ops
+    * https://stribika.github.io/2015/01/04/secure-secure-shell.html
+    * https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54 
+    * https://www.ssh.com/academy/ssh/keygen 
 * Mac SSH: https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x 
-* SSH: https://www.ssh.com/academy/ssh/keygen 
 * Systemd
     * https://www.freedesktop.org/software/systemd/man/systemd.service.html 
 * Firewalls 
     * UFW https://www.vultr.com/docs/initial-secure-server-configuration-of-ubuntu-18-04 
     * https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands 
     * IP Tables https://upcloud.com/community/tutorials/configure-iptables-ubuntu/ 
-* UFW Message: https://handyman.dulare.com/ufw-block-messages-in-syslog-how-to-get-rid-of-them/ 
-    * Restart after: sudo service rsyslog restart
 * Fail2ban 
     * https://linuxhint.com/install_fail2ban_on_ubuntu_20-04/  
-* Simplified log-in (bottom of article) https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54 
 * Monitoring (sample from Plasm https://docs.plasmnet.io/build/validator-guide/secure-validator/installation-node-monitoring)
 * SWAP
     * https://www.digitalocean.com/community/tutorials/how-to-configure-virtual-memory-swap-file-on-a-vps
@@ -33,30 +31,24 @@
     * https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-20-04/
         * bs=1024 count=1048576
 
-## Mac (client) Commands
-Generate ssh key (ed25519 is preferred)
+## Set Up SSH Keys on Mac (client)
+Open Terminal
+
+Generate ssh key (ed25519 is preferred - read Secure SSH resources for more perspectives on this)
 `ssh-keygen -t ed25519 -o -a 100`
 Or
 `ssh-keygen -t rsa -b 4096`
+
+Use a strong password.
 
 Ensure key is not publicly visible
 `chmod 400 ~/.ssh/id_ed25519`
 Or 
 `chmod 400 ~/.ssh/id_rsa`
 
-Remove keys as needed
-`rm ~/.ssh/id_rsa // rm ~/.ssh/id_rsa.pub`
-If you cant delete grant access with
-`chmod 600` 
+Navigate to SSH files on macos using Command+Shift+G then input `~/.ssh` in the seach bar. You should see your public and private keys. Guard your private key closely. Your public key can be pasted in your VPS providers "SSH Keys" section when you set up a new VPS. You will also need to paste your public key in the authorized keys file of any new users you create (more on this later).
 
-Copy pub key as needed
-`pbcopy < ~/.ssh/id_rsa.pub`
-
-Navigate to Library file on macos using Command+Shift+G then input ~/Library/
-
-Navigate to SSH files on macos using Command+Shift+G then input ~/.ssh
-
-To edit SSH Config on macos navigate to .ssh using the command above then add the text below to the ssh config file. If file doesnt exist creat it using text editor.
+To edit SSH Config on macos navigate to .ssh using the command above then add the text below to the ssh config file. If file doesnt exist creat it using text editor. Include ed25519 or rsa as appicable i.e., if you only set up the ed25519 key dont insert the rsa line.
 ```
 Host *
   AddKeysToAgent yes
@@ -65,22 +57,22 @@ Host *
   IdentityFile ~/.ssh/id_rsa
 ```
 
-Add keys to keychain in terminal so you dont have to enter password for keys every time you log in VPS
+Add keys to keychain in terminal so you dont have to enter password for keys every time you log in VPS. Note, you will need to do this every time you restart your computer.
 `ssh-add --apple-load-keychain`
 
-## Linux Best Practices
-- Never use the root user.
-- Always update the security patches for your OS.
-- Enable and set up a firewall.
-- Never allow password-based SSH, only use key-based access.
-- Disable non-essential SSH subsystems (banner, motd, scp, X11 forwarding) and harden your SSH configuration (reasonable guide to begin with).
-- Back up your storage regularly.
+Congrats, you should now have a ssh key-pair. Now time to set up the VPS.
 
 ## Server (host) Commands to set up new server
-Get updates
+**I cant stress this enough, try this on a test server and get comfortable with it before trying on any production server**
+
+We will be getting updates, adding a new user, adding your pub key to the new user, disabling root login, disabling password login, setting up a firewall, setting up fail2ban, and setting up a swap space for memory. **If you are running a node on Zenon know the service file points to root, so you need to perform zenon actions as the root user. If you follow this guide when you log into your machine, you will log in as the new user. This means when you download zenon, you need to switch to root otherwise your data will not be where zenon expects it to be. You can switch to the root user at any time using the following command `sudo su - root`** 
+
+Follow the steps of whatever VPS provider you choose to set up your machine. Add the public key you generated in the last step to the VPS provider autorized keys. This is a bit different for each provider so I cant give exact steps but it should be intuitive. Once you have your machine up, log in as normal and proceed to the next steps. If you were not prompted for a password when logging in to the VPS congrats, it used your key-pair!
+
+First things first, update the server. You should do this regularly, especially whenever there are security updates.
 `sudo apt update && sudo apt upgrade -y`
 
-Add User
+Now add a user (replace username with whatever name you please)
 `adduser username`
 
 Give sudo permissions to new user
@@ -121,16 +113,13 @@ Reload ssh
 Access root with new user
 `sudo -s`
 
-Access root user
-`sudo su - root`
-
 Install fail2ban
 `apt install fail2ban`
 
 Add swap space (4 GB)
 `fallocate -l 4G /swapfile`
 
-Use the following if fallocate doesnt work `dd if=/dev/zero of=/swapfile bs=1024 count=4194304`
+Use the following only if fallocate doesnt work `dd if=/dev/zero of=/swapfile bs=1024 count=4194304`
 
 Enter the commands below to configure the swap space
 ```
@@ -160,47 +149,7 @@ Confirm fail2ban
 Confirm swap
 `free`
 
-## Basic Linux Commands: https://linuxcommand.org/lc3_man_pages/ssh1.html 
-Escape (END) = press q to get back to cli
-- Save = CTRL+O
-- Exit = CTRL+X
-- Remove = `rm`
-- Remove files in directory = `rm -r`
-- Remove directory = `rm -rf`
-- Terminate program = `ctrl+c`
-- View free memory = `free -m`
-- View memory usage = `ps aux`
-- View logs = 
-`cd /var/log`
-`ls`
-`sudo nano /var/log/log` replace log with what you want to view
-- Exit log = ctrl+c
-
-## System utilities to view performance
-- Memory usage with `vmstat` `top` `free` `htop`
-- CPU/memory/disk with `sar`
-- Bandwidth with `iftop`
-- Network protocols with `ntopng`
-
-## Basic Linux “Screen” Usage
-- On the command prompt, type `screen`
-- Name screen = `screen -S session_name`
-- List screens = `screen -ls`
-- Use the key sequence Ctrl-a + Ctrl-d to detach from the screen session.
-- Reattach to the screen session by typing `screen -r number`
-- `exit` will exit screen / Ctrl+A, and then K to forcibly kill a window
-- Ctrl+a c Create a new window (with shell).
-- Ctrl+a " List all windows.
-- Ctrl+a 0 Switch to window 0 (by number).
-- Ctrl+a A Rename the current window.
-- Ctrl+a S Split current region horizontally into two regions.
-- Ctrl+a | Split current region vertically into two regions.
-- Ctrl+a tab Switch the input focus to the next region.
-- Ctrl+a Ctrl+a Toggle between the current and previous windows
-- Ctrl+a Q Close all regions but the current one.
-- Ctrl+a X Close the current region.
-
-
+If this all worked congrats. If not, leverage the resources to troubleshoot. If you 
 
 
 ## If you found helpful no need to donate, but delegation to SultanOfStaking pillar would be appreciated https://explorer.znn.space/pillar/z1qpgdtn89u9365jr7ltdxu29fy52pnzwe4fl7zc
