@@ -1,5 +1,7 @@
 # VPS Set-Up Tips
 
+## I created this guide to provide anyone running a node with some basic resources and tips to set up a secure VPS. There are many things you can do to secure your VPS and everyone approaches this a little differenlty. This is meant to give you a starting point and some resources to learn more. When learning how to secure a VPS it is not uncommon to make it so secure that even you cant access it. I have included text where possible to help prevent that, but to be safe I would try these on a test machine and get comfortable with your personal set-up before replicating on any production machine. The tips below are my own and not endorsed by any team.  Please use the issue feature for fixes here. **Try at your own risk.**
+
 ## Resources
 * General Best Practices 
     * https://docs.ovh.com/us/en/vps/tips-for-securing-a-vps/ 
@@ -201,3 +203,4 @@ Escape (END) = press q to get back to cli
 
 
 
+## If you found helpful no need to donate, but delegation to SultanOfStaking pillar would be appreciated https://explorer.znn.space/pillar/z1qpgdtn89u9365jr7ltdxu29fy52pnzwe4fl7zc
