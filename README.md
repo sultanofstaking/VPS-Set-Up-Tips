@@ -7,6 +7,7 @@
     * https://docs.ovh.com/us/en/vps/tips-for-securing-a-vps/ 
     * https://www.howtogeek.com/412055/37-important-linux-commands-you-should-know/
     * https://dzone.com/articles/13-ways-to-secure-your-cloud-vps 
+    * https://www.vultr.com/docs/initial-secure-server-configuration-of-ubuntu-18-04
 * Secure SSH
     * https://medium.com/bld-nodes/securing-ssh-access-to-your-server-cc1324b9adf6 
     * https://stribika.github.io/2015/01/04/secure-secure-shell.html
@@ -16,8 +17,7 @@
 * Systemd
     * https://www.freedesktop.org/software/systemd/man/systemd.service.html 
 * Firewalls 
-    * UFW https://www.vultr.com/docs/initial-secure-server-configuration-of-ubuntu-18-04 
-    * https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands 
+    * UFW https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands 
     * IP Tables https://upcloud.com/community/tutorials/configure-iptables-ubuntu/ 
 * Fail2ban 
     * https://linuxhint.com/install_fail2ban_on_ubuntu_20-04/  
