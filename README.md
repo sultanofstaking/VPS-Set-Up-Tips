@@ -1,36 +1,35 @@
 # VPS-Set-Up
 
-## VPS Comparison (Ubuntu 20.04)
-Bare Metal Preferred
-* Vultr 
-    * Pro
-        * Simple clean layout
-        * Lots of data centers
-    * Con
-        * Limited native alerts from Vultr (can use external solutions)
-* Digital Ocean 
-    * Pro
-        * Simple clean layout
-        * Easy to set alerts
-    * Con
-        * Seemingly fewer data centers
-* OVH 
-    * Pro
-        * TBD
-    * Con
-        * Doesn't natively support ED25519 keys (can embed in VPS)
-        * Seemingly fewer data centers
-        * Not intuitive to set up alerts
-        * Allows Ubuntu login after root disable
-* AWS
-    * Pro
-        * Lots of data centers
-        * Easy to set alerts
-    * Con
-        * Expensive
-        * Doesn't natively support ED25519 keys (can embed in VPS)
-        * Must change hostname through CLI (uses private IPv4 for hostname)
-        * Allows Ubuntu login after root disable
+## Resources
+* General Best Practices 
+    * https://docs.ovh.com/us/en/vps/tips-for-securing-a-vps/ 
+    * https://www.howtogeek.com/412055/37-important-linux-commands-you-should-know/
+    * https://dzone.com/articles/13-ways-to-secure-your-cloud-vps 
+* Secure SSH
+    * https://medium.com/bld-nodes/securing-ssh-access-to-your-server-cc1324b9adf6 
+* Courses: https://acloudguru.com/browse-training?vendors%5B%5D=amazon-web-services&vendors%5B%5D=linux&role%5B%5D=sys-ops
+* Mac SSH: https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x 
+* SSH: https://www.ssh.com/academy/ssh/keygen 
+* Systemd
+    * https://www.freedesktop.org/software/systemd/man/systemd.service.html 
+* Firewalls 
+    * UFW https://www.vultr.com/docs/initial-secure-server-configuration-of-ubuntu-18-04 
+    * https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands 
+    * IP Tables https://upcloud.com/community/tutorials/configure-iptables-ubuntu/ 
+* UFW Message: https://handyman.dulare.com/ufw-block-messages-in-syslog-how-to-get-rid-of-them/ 
+    * Restart after: sudo service rsyslog restart
+* Fail2ban 
+    * https://linuxhint.com/install_fail2ban_on_ubuntu_20-04/  
+* Simplified log-in (bottom of article) https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54 
+* Monitoring (sample from Plasm https://docs.plasmnet.io/build/validator-guide/secure-validator/installation-node-monitoring)
+* SWAP
+    * https://www.digitalocean.com/community/tutorials/how-to-configure-virtual-memory-swap-file-on-a-vps
+    * https://www.digitalocean.com/community/questions/ubuntu-2gb-swap-file 
+    * https://linuxtechlab.com/create-swap-space-linux-system/
+    * https://help.ubuntu.com/community/SwapFaq
+    * https://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/
+    * https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-20-04/
+        * bs=1024 count=1048576
 
 ## Mac (client) Commands
 Generate ssh key (ed25519 is preferred)
@@ -199,35 +198,6 @@ Escape (END) = press q to get back to cli
 - Ctrl+a Q Close all regions but the current one.
 - Ctrl+a X Close the current region.
 
-## Resources
-* General Best Practices 
-    * https://docs.ovh.com/us/en/vps/tips-for-securing-a-vps/ 
-    * https://www.howtogeek.com/412055/37-important-linux-commands-you-should-know/
-    * https://dzone.com/articles/13-ways-to-secure-your-cloud-vps 
-* Secure SSH
-    * https://medium.com/bld-nodes/securing-ssh-access-to-your-server-cc1324b9adf6 
-* Firewalls 
-    * UFW https://www.vultr.com/docs/initial-secure-server-configuration-of-ubuntu-18-04 
-    * https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands 
-    * IP Tables https://upcloud.com/community/tutorials/configure-iptables-ubuntu/ 
-* Fail2ban 
-    * https://linuxhint.com/install_fail2ban_on_ubuntu_20-04/  
-* Simplified log-in (bottom of article) https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54 
-* Monitoring (sample from Plasm https://docs.plasmnet.io/build/validator-guide/secure-validator/installation-node-monitoring)
-* Courses: https://acloudguru.com/browse-training?vendors%5B%5D=amazon-web-services&vendors%5B%5D=linux&role%5B%5D=sys-ops
-* Mac SSH: https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x 
-* SSH: https://www.ssh.com/academy/ssh/keygen 
-* AWS Users (maybe not helpful…): https://aws.amazon.com/premiumsupport/knowledge-center/new-user-accounts-linux-instance/ 
-* UFW Message: https://handyman.dulare.com/ufw-block-messages-in-syslog-how-to-get-rid-of-them/ 
-    * Restart after: sudo service rsyslog restart
-* SWAP
-    * https://www.digitalocean.com/community/tutorials/how-to-configure-virtual-memory-swap-file-on-a-vps
-    * https://www.digitalocean.com/community/questions/ubuntu-2gb-swap-file 
-    * https://linuxtechlab.com/create-swap-space-linux-system/
-    * https://help.ubuntu.com/community/SwapFaq
-    * https://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/
-    * https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-20-04/
-        * bs=1024 count=1048576
-* Systemd
-    * https://www.freedesktop.org/software/systemd/man/systemd.service.html 
+
+
 
