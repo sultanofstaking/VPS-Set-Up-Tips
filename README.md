@@ -113,8 +113,7 @@ Reload ssh
 Access root with new user
 `sudo -s`
 
-Set firewall permissions (ports open will depend on what you are running)
-`ufw allow #ssh`
+Set firewall permissions (the exact ports you need to open will depend on what you are running on your machine - replace #PORT with the port you need open in the line below - see resources on UFW for more tips here)
 `ufw allow #PORT`
 
 Enable UFW
@@ -149,6 +148,9 @@ Reboot server
 
 Access sudo
 `sudo -s`
+
+Confirm UFW
+`sudo ufw status`
 
 Confirm fail2ban
 `systemctl status fail2ban`
