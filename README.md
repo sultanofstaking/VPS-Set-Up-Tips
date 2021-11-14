@@ -113,6 +113,13 @@ Reload ssh
 Access root with new user
 `sudo -s`
 
+Set firewall permissions (ports open will depend on what you are running)
+`ufw allow #ssh`
+`ufw allow #PORT`
+
+Enable UFW
+`ufw enable`
+
 Install fail2ban
 `apt install fail2ban`
 
@@ -149,7 +156,6 @@ Confirm fail2ban
 Confirm swap
 `free`
 
-If this all worked congrats. If not, leverage the resources to troubleshoot. If you 
-
+If this all worked congrats. This should be a good base to start from. The best thing you can do from here is learn more about securing your machine and stay on top of it as technology evolves. If this didnt work and you think you messed something up leverage the resources to troubleshoot. If this doesnt work and you think I messed something up submit an issue here. If you want some basic Linux commands check the bottom of my tips guide https://github.com/sultanofstaking/Zenon-Testnet-Node-Tips
 
 ## If you found helpful no need to donate, but delegation to SultanOfStaking pillar would be appreciated https://explorer.znn.space/pillar/z1qpgdtn89u9365jr7ltdxu29fy52pnzwe4fl7zc
