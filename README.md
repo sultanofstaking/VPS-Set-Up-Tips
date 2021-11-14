@@ -1,4 +1,4 @@
-# VPS-Set-Up
+# VPS Set-Up Tips
 
 ## Resources
 * General Best Practices 
