@@ -41,7 +41,7 @@ Or
 
 Accept the default path to save.
 
-Use a strong password.
+Use a strong password. Your typing wont be reflected on the screen just a heads up but you will be asked for the password twice to be sure you entered it correclty.
 
 Ensure key is not publicly visible
 `chmod 400 ~/.ssh/id_ed25519`
