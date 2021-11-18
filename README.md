@@ -39,6 +39,8 @@ Generate ssh key (ed25519 is preferred - read Secure SSH resources for more pers
 Or
 `ssh-keygen -t rsa -b 4096`
 
+Accept the default path to save.
+
 Use a strong password.
 
 Ensure key is not publicly visible
