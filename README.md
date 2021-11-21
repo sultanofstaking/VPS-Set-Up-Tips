@@ -13,7 +13,8 @@
     * https://stribika.github.io/2015/01/04/secure-secure-shell.html
     * https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54 
     * https://www.ssh.com/academy/ssh/keygen 
-* Mac SSH: https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x 
+* Mac SSH 
+    * https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x 
 * Systemd
     * https://www.freedesktop.org/software/systemd/man/systemd.service.html 
 * Firewalls 
@@ -21,7 +22,8 @@
     * IP Tables https://upcloud.com/community/tutorials/configure-iptables-ubuntu/ 
 * Fail2ban 
     * https://linuxhint.com/install_fail2ban_on_ubuntu_20-04/  
-* Monitoring (sample from Plasm https://docs.plasmnet.io/build/validator-guide/secure-validator/installation-node-monitoring)
+* Monitoring (sample from Plasm) 
+    * https://docs.plasmnet.io/build/validator-guide/secure-validator/installation-node-monitoring)
 * SWAP
     * https://www.digitalocean.com/community/tutorials/how-to-configure-virtual-memory-swap-file-on-a-vps
     * https://www.digitalocean.com/community/questions/ubuntu-2gb-swap-file 
@@ -50,7 +52,7 @@ Or
 
 Navigate to SSH files on macos using Command+Shift+G then input `~/.ssh` in the seach bar. You should see your public and private keys. Guard your private key closely. Your public key can be pasted in your VPS providers "SSH Keys" section when you set up a new VPS. You will also need to paste your public key in the authorized keys file of any new users you create (more on this later).
 
-To edit SSH Config on macos navigate to .ssh using the command above then add the text below to the ssh config file. If file doesnt exist creat it using text editor. Include ed25519 or rsa as appicable i.e., if you only set up the ed25519 key dont insert the rsa line.
+To edit SSH Config on macos navigate to .ssh using the command above then add the text below to the ssh config file. If file doesnt exist create it using text editor. Include ed25519 or rsa as appicable i.e., if you only set up the ed25519 key dont insert the rsa line.
 ```
 Host *
   AddKeysToAgent yes
