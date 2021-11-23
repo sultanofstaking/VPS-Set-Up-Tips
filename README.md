@@ -76,6 +76,11 @@ Follow the steps of whatever VPS provider you choose to set up your machine. Add
 First things first, update the server. You should do this regularly, especially whenever there are security updates.
 `sudo apt update && sudo apt upgrade -y`
 
+Alternatively you can enable automatic updates.
+`apt install unattended-upgrades`
+
+`dpkg-reconfigure --priority=low unattended-upgrades`
+
 Now add a user (replace username with whatever name you please)
 `adduser username`
 
