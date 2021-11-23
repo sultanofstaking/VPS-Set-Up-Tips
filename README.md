@@ -77,7 +77,7 @@ First things first, update the server. You should do this regularly, especially 
 `sudo apt update && sudo apt upgrade -y`
 
 Alternatively you can enable automatic updates.
-`apt install unattended-upgrades`
+`sudo apt install unattended-upgrades`
 
 `dpkg-reconfigure --priority=low unattended-upgrades`
 
