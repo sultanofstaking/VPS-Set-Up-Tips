@@ -79,7 +79,7 @@ First things first, update the server. You should do this regularly, especially 
 Alternatively you can enable automatic updates.
 `sudo apt install unattended-upgrades`
 
-`dpkg-reconfigure --priority=low unattended-upgrades`
+`sudo dpkg-reconfigure --priority=low unattended-upgrades`
 
 Now add a user (replace username with whatever name you please)
 `adduser username`
