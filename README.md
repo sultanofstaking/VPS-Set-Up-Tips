@@ -164,11 +164,13 @@ swapon /swapfile
 Edit the fstab file `nano /etc/fstab`
 
 Append the line below, save, and exit
-```
-/swapfile swap swap defaults 0 0
-sysctl vm.swappiness=25
-cat /proc/sys/vm/swappiness
-```
+`/swapfile swap swap defaults 0 0`
+
+Check swappiness
+`cat /proc/sys/vm/swappiness`
+
+Set swappiness if needed
+`sudo sysctl vm.swappiness=25`
 
 Reboot server
 `reboot`
