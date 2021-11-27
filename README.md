@@ -79,7 +79,17 @@ First things first, update the server. You should do this regularly, especially 
 Alternatively you can enable automatic updates.
 `sudo apt install unattended-upgrades`
 
+`sudo apt-get install -y update-notifier-common`
+
 `sudo dpkg-reconfigure --priority=low unattended-upgrades`
+
+Select Yes
+
+`sudo nano -w /etc/apt/apt.conf.d/50unattended-upgrades`
+
+We need to make a few changes to this file. To set up email notification search for `Unattended-Upgrade: :Mail` and insert your email between the quotations. Next there should be a `MailReport` section and be sure that is set to `on-change` last to allow automatic reboots scroll down to find `Automatic-Reboot` and set it to `true`
+
+To check if this all worked run `apt-config dump APT::Periodic::Unattended-Upgrade` if you get a `1` that means this will run every 1 day. `0` means unattended upgrades are disabled.
 
 Now add a user (replace username with whatever name you please)
 `adduser username`
