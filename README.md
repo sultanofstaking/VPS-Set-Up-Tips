@@ -149,10 +149,8 @@ Enable UFW
 Install fail2ban
 `apt install fail2ban`
 
-Add swap space (4 GB)
-`fallocate -l 4G /swapfile`
-
-Use the following only if fallocate doesnt work `dd if=/dev/zero of=/swapfile bs=1024 count=4194304`
+Add swap space (16 GB)
+`fallocate -l 16G /swapfile`
 
 Enter the commands below to configure the swap space
 ```
