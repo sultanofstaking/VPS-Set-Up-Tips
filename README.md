@@ -1,10 +1,12 @@
 # VPS Set-Up Tips
 
-## I created this guide to provide anyone running a node with some basic resources and tips to set up a secure VPS. There are many things you can do to secure your VPS and everyone approaches this a little differenlty. This is meant to give you a starting point and some resources to educate yourself. When first learning how to secure a VPS it is not uncommon to lock yourself out. I have included text where possible to help prevent this from occuring, but to be safe I would try this guide on a test machine and get comfortable with your personal set-up before replicating on any production machine. The tips below are my own and not endorsed by any team. Please use the issue feature for fixes here. **Try at your own risk.**
+## I created this guide to provide anyone running a node with some basic resources and tips to set up a secure VPS. There are many things you can do to secure your VPS and everyone approaches this a little differenlty. This is meant to give you a starting point and some resources to educate yourself. 
 
-## If you are new to virtual machines you are probably wondering where to start. Google VPS provider and a myriad of results will pop up. You will want to find a provider that is cheap with a friendly user interface to learn on. I launch most of my test instances on Digital Ocean. If you would like to try them out for yourself feel free to use my referral code for a $100 credit over 60 days https://m.do.co/c/ab6f82b1c45f. Another great option is AWS as it has a free tier. AWS is a bit more complex to navigate because they have a ton of great features you probably dont need if you are just getting started, but once you figure it out the free tier is well... free. Keep in mind you will likely need to upgrade from free tier however if you wish to run production nodes.
+## When first learning how to secure a VPS it is not uncommon to lock yourself out. I have included text where possible to help prevent this from occuring, but to be safe I would try this guide on a test machine and get comfortable with your personal set-up before replicating on any production machine. The tips below are my own and not endorsed by any team. Please use the issue feature for fixes here. **Try at your own risk.**
 
-## I am providing resources up front instead of at the end because the best way to secure your machine is by learning. As ironic as it is to say this here, you should never blindly trust copy paste guides you find on the internet. The more your know the better protected you will be.
+## If you are new to virtual machines then you are probably wondering where to start. Google "VPS provider" and a myriad of results will pop up. You will want to find a provider that is cheap with a friendly user interface to learn on. I launch most of my test instances on Digital Ocean. If you would like to try them out for yourself feel free to use my referral code for a $100 credit over 60 days https://m.do.co/c/ab6f82b1c45f. Another great option is AWS as it has a free tier. AWS is a bit more complex to navigate because they have a ton of great features (features you probably dont need if you are just getting started), but once you figure it out the free tier is well... free. Keep in mind you will likely need to upgrade from free tier however if you wish to run production nodes.
+
+## I am providing resources up front instead of at the end because the best way to secure your machine is by learning. As ironic as it is to say this here, you should never blindly trust copy paste guides you find on the internet. The more your know the better protected you will be. If there is an article you think I should include please feel free to share.
 * General Best Practices 
     * https://docs.ovh.com/us/en/vps/tips-for-securing-a-vps/ 
     * https://www.howtogeek.com/412055/37-important-linux-commands-you-should-know/
@@ -33,12 +35,11 @@
     * https://help.ubuntu.com/community/SwapFaq
     * https://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/
     * https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-20-04/
-        * bs=1024 count=1048576
 
 ## Set Up SSH Keys on client
 Open Terminal
 
-Generate ssh key (ed25519 is preferred - read Secure SSH resources for more perspectives on this)
+Generate ssh key (ed25519 is preferred - read Secure SSH resources above for more perspective on this)
 `ssh-keygen -t ed25519 -o -a 100`
 Or
 `ssh-keygen -t rsa -b 4096`
@@ -52,7 +53,7 @@ Ensure key is not publicly visible
 Or 
 `chmod 400 ~/.ssh/id_rsa`
 
-Navigate to SSH files on macos using Command+Shift+G then input `~/.ssh` in the seach bar. You should see your public and private keys. Guard your private key closely. Your public key can be pasted in your VPS providers "SSH Keys" section when you set up a new VPS. You will also need to paste your public key in the authorized keys file of any new users you create (more on this later).
+**For macos** navigate to SSH files by pressing Command+Shift+G then input `~/.ssh` in the seach bar. You should see your public and private key files. Guard your private key closely. Your public key can be pasted in your VPS providers "SSH Keys" section when you set up a new VPS. You will also need to paste your public key in the authorized keys file of any new users you create (more on this later).
 
 To edit SSH Config on macos navigate to .ssh using the command above then add the text below to the ssh config file. If file doesnt exist create it using text editor. Include ed25519 or rsa as appicable i.e., if you only set up the ed25519 key dont insert the rsa line.
 ```
