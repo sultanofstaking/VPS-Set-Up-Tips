@@ -69,10 +69,10 @@ Add keys to keychain in terminal so you dont have to enter password for keys eve
 
 Congrats, you should now have a ssh key-pair. Now time to set up the VPS.
 
-## Server (host) Commands to set up new server
+## Set Up Server (host)
 **I cant stress this enough, try this on a test server and get comfortable with it before trying on any production server**
 
-We will be getting updates, adding a new user, adding your pub key to the new user, disabling root login, disabling password login, setting up a firewall, setting up fail2ban, and setting up a swap space for memory. **If you are running a node on Zenon know the service file points to root, so you need to perform zenon actions as the root user. If you follow this guide when you log into your machine, you will log in as the new user. This means when you download zenon, you need to switch to root otherwise your data will not be where zenon expects it to be. You can switch to the root user at any time using the following command `sudo su - root`** 
+We will be getting updates, adding a new user, adding your pub key to the new user, disabling root login, disabling password login, setting up a firewall, setting up fail2ban, and setting up a swap space for memory. **If you are running a node on Zenon know that the service file points to root, so you need to perform zenon actions as the root user. If you follow this guide when you log into your machine, you will log in as a new user you have created. This means when you download zenon, you need to switch to root otherwise your data will not be where zenon expects it to be. You can switch to the root user at any time using the following command `sudo su - root`** 
 
 Follow the steps of whatever VPS provider you choose to set up your machine. Add the public key you generated in the last step to the VPS provider autorized keys. This is a bit different for each provider so I cant give exact steps but it should be intuitive. Once you have your machine up, log in as normal and proceed to the next steps. If you were not prompted for a password when logging in to the VPS congrats, it used your key-pair!
 
