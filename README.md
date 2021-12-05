@@ -76,6 +76,7 @@ We will be getting updates, adding a new user, adding your pub key to the new us
 
 Follow the steps of whatever VPS provider you choose to set up your machine. Add the public key you generated in the last step to the VPS provider autorized keys. This is a bit different for each provider so I cant give exact steps but it should be intuitive. Once you have your machine up, log in as normal and proceed to the next steps. If you were not prompted for a password when logging in to the VPS congrats, it used your key-pair!
 
+## Get updates
 First things first, update the server. You should do this regularly, especially whenever there are security updates.
 `sudo apt update && sudo apt upgrade -y`
 
@@ -101,6 +102,8 @@ Activate unattended upgrades
 Select Yes
 
 To check if this all worked run `sudo nano /etc/apt/apt.conf.d/20auto-upgrades` if the two lines end with `1` that means you are good. `0` means unattended upgrades are disabled.
+
+## Add a new user 
 
 Now add a user (replace username with whatever name you please)
 `adduser username`
@@ -138,12 +141,13 @@ Once changed CTRL+O to save then CTRL+X to exit
 Reload ssh 
 `systemctl reload sshd`
 
-**DO NOT LOG OUT OF ROOT try to log in with new user in a new window ssh username@ip**
+**DO NOT LOG OUT OF ROOT. Open a new terminal window and try to log in as the root user. If this worked you will be denied access. Now try to log in with new user you just created ssh username@ip. If all works as planned you will log in with your new user utilizing your ssh keypair.**
 
 Access root with new user
 `sudo -s`
 
-Set firewall permissions (the exact ports you need to open will depend on what you are running on your machine - replace #PORT with the port you need open in the line below - see resources on UFW for more tips here)
+## Set up firewall and fail2ban
+Set firewall permissions (the exact ports you need to open will depend on what you are running on your machine - replace #PORT with the port you need open in the line below - see resources on UFW and fail2ban above for more tips)
 `ufw allow #PORT`
 
 Enable UFW
@@ -151,6 +155,8 @@ Enable UFW
 
 Install fail2ban
 `apt install fail2ban`
+
+## Add a swap space
 
 Add swap space (16 GB)
 `fallocate -l 16G /swapfile`
@@ -176,6 +182,8 @@ Set swappiness if needed
 Reboot server
 `reboot`
 
+## Confirm everything is working
+
 Access sudo
 `sudo -s`
 
@@ -188,6 +196,6 @@ Confirm fail2ban
 Confirm swap
 `free`
 
-If this all worked congrats. This should be a good base to start from. The best thing you can do from here is learn more about securing your machine and stay on top of it as technology evolves. If this didnt work and you think you messed something up leverage the resources to troubleshoot. If this doesnt work and you think I messed something up submit an issue here. If you want some basic Linux commands check the bottom of my tips guide https://github.com/sultanofstaking/Zenon-Testnet-Node-Tips
+If this all worked congrats. This should be a good base to start from. The best thing you can do from here is continue to learn more about securing your machine and stay on top of it as technology evolves. If this didnt work and you think you messed something up leverage the resources at the top to troubleshoot. If this doesnt work and you think I messed something up submit an issue here and I will fix it. If you want some basic Linux commands check the bottom of my tips guide https://github.com/sultanofstaking/Zenon-Testnet-Node-Tips
 
 ## If you found helpful no need to donate, but delegation to SultanOfStaking pillar would be appreciated
