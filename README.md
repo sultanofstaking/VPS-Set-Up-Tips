@@ -4,7 +4,7 @@
 
 ## If you are new to virtual machines you are probably wondering where to start. You are going to want to find a provider that is cheap with a simple interface to learn on. I launch most of my test instances on Digital Ocean. If you would like to try them out use my referral code for a $100 credit over 60 days https://m.do.co/c/ab6f82b1c45f. Another option is AWS as it has a free tier. AWS is a bit more complex to get started because it has a ton of great features you dont need if you are just getting started but once you figure it out the free tier is well... free. You will likely need to upgrade however if you wish to run production nodes so in that case, I would recommend you pick a provider you are comfortable with and start there.
 
-## I am providing resources up front instead of at the end because the best way to secure your machine is by learning. As ironic as it is in this guide, you should never blindly trust copy paste guides you find on the internet. The more your know the better protected you will be.
+## I am providing resources up front instead of at the end because the best way to secure your machine is by learning. As ironic as it is to say this here, you should never blindly trust copy paste guides you find on the internet. The more your know the better protected you will be.
 * General Best Practices 
     * https://docs.ovh.com/us/en/vps/tips-for-securing-a-vps/ 
     * https://www.howtogeek.com/412055/37-important-linux-commands-you-should-know/
@@ -35,7 +35,7 @@
     * https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-20-04/
         * bs=1024 count=1048576
 
-## Set Up SSH Keys on Mac (client)
+## Set Up SSH Keys on client
 Open Terminal
 
 Generate ssh key (ed25519 is preferred - read Secure SSH resources for more perspectives on this)
@@ -189,4 +189,4 @@ Confirm swap
 
 If this all worked congrats. This should be a good base to start from. The best thing you can do from here is learn more about securing your machine and stay on top of it as technology evolves. If this didnt work and you think you messed something up leverage the resources to troubleshoot. If this doesnt work and you think I messed something up submit an issue here. If you want some basic Linux commands check the bottom of my tips guide https://github.com/sultanofstaking/Zenon-Testnet-Node-Tips
 
-## If you found helpful no need to donate, but delegation to SultanOfStaking pillar would be appreciated https://explorer.znn.space/pillar/z1qpgdtn89u9365jr7ltdxu29fy52pnzwe4fl7zc
+## If you found helpful no need to donate, but delegation to SultanOfStaking pillar would be appreciated
