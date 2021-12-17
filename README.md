@@ -22,7 +22,7 @@
 * Systemd
     * https://www.freedesktop.org/software/systemd/man/systemd.service.html 
 * Firewalls 
-    * UFW https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands 
+    * UFW https://help.ubuntu.com/community/UFW
     * IP Tables https://upcloud.com/community/tutorials/configure-iptables-ubuntu/ 
 * Fail2ban 
     * https://linuxhint.com/install_fail2ban_on_ubuntu_20-04/  
@@ -147,11 +147,19 @@ Access root with new user
 `sudo -s`
 
 ## Set up firewall and fail2ban
-Set firewall permissions (the exact ports you need to open will depend on what you are running on your machine - replace #PORT with the port you need open in the line below - see resources on UFW and fail2ban above for more tips)
-`ufw allow #PORT`
 
 Enable UFW
 `ufw enable`
+
+Check ufw status `ufw status` or `ufw status verbose`
+
+Set firewall permissions (the exact ports you need to open will depend on what you are running on your machine - replace #PORT or #IP with the port or IP you need open in the line below - see resources on UFW and fail2ban above for more tips)
+
+`ufw allow #PORT` or `ufw allow #IP`
+
+To allow traffic out only `ufw allow out #PORT` 
+
+To delete rules `ufw status numbered` then `ufw delete #NUMBER`
 
 Install fail2ban
 `apt install fail2ban`
