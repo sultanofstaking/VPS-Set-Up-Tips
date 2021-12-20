@@ -155,7 +155,7 @@ Check ufw status `ufw status` or `ufw status verbose`
 
 Set firewall permissions (the exact ports you need to open will depend on what you are running on your machine - replace #PORT or #IP with the port or IP you need open in the line below - see resources on UFW and fail2ban above for more tips)
 
-`ufw allow #PORT` or `ufw allow #IP`
+`ufw allow #PORT` or `ufw allow from #IP`
 
 To allow traffic out only `ufw allow out #PORT` 
 
