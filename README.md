@@ -101,7 +101,7 @@ Activate unattended upgrades
 
 Select Yes
 
-To check if this all worked run `sudo nano /etc/apt/apt.conf.d/20auto-upgrades` if the two lines end with `1` that means you are good. `0` means unattended upgrades are disabled.
+To check if this all worked run `sudo nano /etc/apt/apt.conf.d/20auto-upgrades` if the two lines end with `1` that means you are good. `0` means unattended upgrades are disabled. You can also check unattended upgrade logs with `sudo cat /var/log/unattended-upgrades/unattended-upgrades.log`
 
 ## Add a new user 
 
