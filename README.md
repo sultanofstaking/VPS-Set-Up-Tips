@@ -1,42 +1,14 @@
 # VPS Set-Up Tips
 
-## I created this guide to provide anyone running a node with some basic resources and tips to set up a secure VPS. There are many things you can do to secure your VPS and everyone approaches this a little differenlty. This is meant to give you a starting point and some resources to educate yourself. 
+## I created this guide to provide anyone running a node with some basic resources and tips to set up a secure VPS. There are many things you can do to secure your VPS and everyone approaches this a little differenlty. This is meant to give you a starting point. 
 
 ## When first learning how to secure a VPS it is not uncommon to lock yourself out. I have included text where possible to help prevent this from occuring, but to be safe I would try this guide on a test machine and get comfortable with your personal set-up before replicating on any production machine. The tips below are my own and not endorsed by any team. Please use the issue feature for fixes here. **Try at your own risk.**
 
 ## If you are new to virtual machines then you are probably wondering where to start. Google "VPS provider" and a myriad of results will pop up. You will want to find a provider that is cheap with a friendly user interface to learn on. I launch most of my test instances on Digital Ocean. If you would like to try them out for yourself feel free to use my referral code for a $100 credit over 60 days https://m.do.co/c/ab6f82b1c45f. Another great option is AWS as it has a free tier. AWS is a bit more complex to navigate because they have a ton of great features (features you probably dont need if you are just getting started), but once you figure it out the free tier is well... free. Keep in mind you will likely need to upgrade from free tier however if you wish to run production nodes.
 
-## I am providing resources up front instead of at the end because the best way to secure your machine is by learning. As ironic as it is to say this here, you should never blindly trust copy paste guides you find on the internet. The more your know the better protected you will be. If there is an article you think I should include please feel free to share.
-* General Best Practices 
-    * https://docs.ovh.com/us/en/vps/tips-for-securing-a-vps/ 
-    * https://www.howtogeek.com/412055/37-important-linux-commands-you-should-know/
-    * https://dzone.com/articles/13-ways-to-secure-your-cloud-vps 
-    * https://www.vultr.com/docs/initial-secure-server-configuration-of-ubuntu-18-04
-* Secure SSH
-    * https://medium.com/bld-nodes/securing-ssh-access-to-your-server-cc1324b9adf6 
-    * https://stribika.github.io/2015/01/04/secure-secure-shell.html
-    * https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54 
-    * https://www.ssh.com/academy/ssh/keygen 
-* Mac SSH 
-    * https://www.getpagespeed.com/work/proper-use-of-ssh-client-in-mac-os-x 
-* Systemd
-    * https://www.freedesktop.org/software/systemd/man/systemd.service.html 
-* Firewalls 
-    * UFW https://help.ubuntu.com/community/UFW
-    * IP Tables https://upcloud.com/community/tutorials/configure-iptables-ubuntu/ 
-* Fail2ban 
-    * https://linuxhint.com/install_fail2ban_on_ubuntu_20-04/  
-* Monitoring (sample from Plasm) 
-    * https://docs.plasmnet.io/build/validator-guide/secure-validator/installation-node-monitoring)
-* SWAP
-    * https://www.digitalocean.com/community/tutorials/how-to-configure-virtual-memory-swap-file-on-a-vps
-    * https://www.digitalocean.com/community/questions/ubuntu-2gb-swap-file 
-    * https://linuxtechlab.com/create-swap-space-linux-system/
-    * https://help.ubuntu.com/community/SwapFaq
-    * https://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/
-    * https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-20-04/
-
 ## Set Up SSH Keys on client
+We will start with setting up your ssh keys. If you have already done this, skip to setting up the server.
+
 Open Terminal
 
 Generate ssh key (ed25519 is preferred - read Secure SSH resources above for more perspective on this)
