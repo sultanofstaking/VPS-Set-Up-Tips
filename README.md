@@ -59,7 +59,7 @@ Alternatively you can enable automatic updates.
 
 `sudo nano -w /etc/apt/apt.conf.d/50unattended-upgrades`
 
-We need to make a few changes to this file. In addition to making the changes below you also need to delete the `//` in front of the line. Delete `//` in front of `Remove-Unused-Kernel-Packages "true"` and `Remove-Unused-Dependencies "true"` last to allow automatic reboots scroll down to find `Automatic-Reboot` and set it to `true` then press ctrl+o to save and ctrl+x to exit.
+We need to make a few changes to this file. Delete `//` in front of `Remove-Unused-Kernel-Packages "true"` and `Remove-Unused-Dependencies "true"` last to allow automatic reboots scroll down to find `Automatic-Reboot` and set it to `true` then press ctrl+o to save and ctrl+x to exit.
 
 Activate unattended upgrades
 
