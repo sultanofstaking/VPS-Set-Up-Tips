@@ -59,21 +59,20 @@ Alternatively you can enable automatic updates.
 
 `sudo nano -w /etc/apt/apt.conf.d/50unattended-upgrades`
 
-We need to make a few changes to this file. In addition to making the changes below you also need to delete the `//` in front of the line. To set up email notification search for `Unattended-Upgrade: :Mail` and insert your email between the quotations. Next there should be a `MailReport` section and be sure that is set to `on-change` , delete `//` in front of `Remove-Unused-Kernel-Packages "true"` and `Remove-New-Unused-Dependencies "true"` last to allow automatic reboots scroll down to find `Automatic-Reboot` and set it to `true` then press ctrl+o to save and ctrl+x to exit.
-
-Now add your email to the listchanges.conf file
-`sudo nano -w /etc/apt/listchanges.conf`
-
-Insert
-`email_address=YOUREMAILADDRESS@YOURDOMAIN`
+We need to make a few changes to this file. In addition to making the changes below you also need to delete the `//` in front of the line. Delete `//` in front of `Remove-Unused-Kernel-Packages "true"` and `Remove-Unused-Dependencies "true"` last to allow automatic reboots scroll down to find `Automatic-Reboot` and set it to `true` then press ctrl+o to save and ctrl+x to exit.
 
 Activate unattended upgrades
 
-`sudo dpkg-reconfigure -plow unattended-upgrades`
+`sudo nano /etc/apt/apt.conf.d/20auto-upgrades` 
 
-Select Yes
+Paste the following in the file if not already there
 
-To check if this all worked run `sudo nano /etc/apt/apt.conf.d/20auto-upgrades` if the two lines end with `1` that means you are good. `0` means unattended upgrades are disabled. You can also check unattended upgrade logs with `sudo cat /var/log/unattended-upgrades/unattended-upgrades.log`
+```
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+```
+
+You can check unattended upgrade logs with `sudo cat /var/log/unattended-upgrades/unattended-upgrades.log`
 
 ## Add a new user 
 
