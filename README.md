@@ -175,11 +175,34 @@ Confirm fail2ban
 Confirm swap
 `free`
 
+### Basic Linux Commands: https://linuxcommand.org/lc3_man_pages/ssh1.html 
+Escape (END) = press q to get back to cli
+- Save = CTRL+O
+- Exit = CTRL+X
+- Remove = `rm`
+- Remove files in directory = `rm -r`
+- Remove directory = `rm -rf`
+- Terminate program = `ctrl+c`
+- View logs = 
+`cd /var/log`
+`ls`
+`sudo nano /var/log/log` replace log with what you want to view
+- Exit log = ctrl+c
+
+### System utilities to view performance
+- Memory usage with `vmstat` `top` `free` `htop`
+- CPU/memory/disk with `sar`
+- Bandwidth with `iftop`
+- Network protocols with `ntopng`
+
+### Memory issues
 To check CPU / Memory usage on your machine you can use `htop`
 
 To check disk usage on your machine you can use `df -h`
 
 To free up storage space try `journalctl --vacuum-time=1h` to remove log files or `apt autoremove` to remove unused dependencies.
+
+To increase CPU you will need to upgrade your machine. To upgrade disk space you can add a volume then log into your machine and run `df -h` to identify the filesystem path then run `sudo resize2fs YOUR PATH` replacing YOUR PATH with the path displayed under filesystem in the previous step. 
 
 If this all worked congrats. This should be a good base to start from. The best thing you can do from here is continue to learn more about securing your machine and stay on top of it as technology evolves. If this didnt work and you think you messed something up leverage the resources at the top to troubleshoot. If this doesnt work and you think I messed something up submit an issue here and I will fix it. If you want some basic Linux commands check the bottom of my tips guide https://github.com/sultanofstaking/Zenon-Testnet-Node-Tips
 
