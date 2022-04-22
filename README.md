@@ -74,6 +74,16 @@ APT::Periodic::Unattended-Upgrade "1";
 
 You can check unattended upgrade logs with `sudo cat /var/log/unattended-upgrades/unattended-upgrades.log`
 
+Another way to accomplish this is to set up a simple cronjob
+
+`sudo crontab -e`
+
+Choose your editor (nano preferred) and once in the file scroll all the way to the bottom and enter the following
+
+`0 0 * * 0 /usr/bin/apt update && /usr/bin/apt upgrade -y`
+
+Ctrl+o to save and Ctrl+x to exit. You will now automatically get updates once a week.
+
 ## Add a new user 
 
 Now add a user (replace username with whatever name you please)
