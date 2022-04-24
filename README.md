@@ -84,6 +84,8 @@ Choose your editor (nano preferred) and once in the file scroll all the way to t
 
 Ctrl+o to save and Ctrl+x to exit. You will now automatically get updates once a week.
 
+To check your update history enter `less /var/log/apt/history.log`
+
 ## Add a new user 
 
 Now add a user (replace username with whatever name you please)
