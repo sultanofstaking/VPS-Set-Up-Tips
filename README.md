@@ -214,6 +214,6 @@ To check disk usage on your machine you can use `df -h`
 
 To free up storage space try `sudo apt-get clean`, `sudo journalctl --vacuum-time=2d`, and `sudo apt-get autoremove --purge`.
 
-###If this all worked congrats. This should be a good base to start from. The best thing you can do from here is continue to learn more about securing your machine and stay on top of it as technology evolves. If this didnt work and you think you messed something up leverage the resources at the top to troubleshoot. If this doesnt work and you think I messed something up submit an issue here and I will fix it. If you want some basic Linux commands check the bottom of my tips guide https://github.com/sultanofstaking/Zenon-Testnet-Node-Tips
+### If this all worked congrats. This should be a good base to start from. The best thing you can do from here is continue to learn more about securing your machine and stay on top of it as technology evolves. If this didnt work and you think you messed something up leverage the resources at the top to troubleshoot. If this doesnt work and you think I messed something up submit an issue here and I will fix it. If you want some basic Linux commands check the bottom of my tips guide https://github.com/sultanofstaking/Zenon-Testnet-Node-Tips
 
 ## If you found helpful no need to donate, but delegation to SultanOfStaking pillar would be appreciated!
