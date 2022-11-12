@@ -149,7 +149,10 @@ Install fail2ban
 
 ## Add a swap space
 
-Add swap space (16 GB)
+You can add a dynamic swap file
+`sudo apt-get install dphys-swapfile`
+
+Or add swap space (16 GB)
 `fallocate -l 16G /swapfile`
 
 Enter the commands below to configure the swap space
