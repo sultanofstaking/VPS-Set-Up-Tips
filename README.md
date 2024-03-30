@@ -2,6 +2,8 @@
 
 ## I created this guide to provide anyone running a node with some basic resources and tips to set up a secure VPS. There are many things you can do to secure your VPS and everyone approaches this a little differenlty. This is meant to give you a starting point. 
 
+## 2024 Update - This guide was created before GenAI became commonplace. If you have any questions about anything here I suggest you ask a GenAI tool such as ChatGPT or Gemini. These tools are also incredibly powerful at resolving errors. In most cases you can paste your error in the GenAI tool and it will give you suggestions to resolve. Be careful you are not pasting any private information. Lastly, ATS created a terrific guide to set up a node that I would recommend referencing as well if you are new to coding. They also cover changing SSH port which I have not included in this guide. You can find their guide here - https://www.atsocy.com/new-to-crypto-set-up-zenon-network-node
+
 ## When first learning how to secure a VPS it is not uncommon to lock yourself out. I have included text where possible to help prevent this from occuring, but to be safe I would try this guide on a test machine and get comfortable with your personal set-up before replicating on any production machine. The tips below are my own and not endorsed by any team. Please use the issue feature for fixes here. **Try at your own risk.**
 
 ## If you are new to virtual machines then you are probably wondering where to start. Google "VPS provider" and a myriad of results will pop up. You will want to find a provider that is cheap with a friendly user interface to learn on. I launch most of my test instances on Digital Ocean. If you would like to try them out for yourself feel free to use my referral code for a $100 credit over 60 days https://m.do.co/c/ab6f82b1c45f. Another great option is AWS as it has a free tier. AWS is a bit more complex to navigate because they have a ton of great features (features you probably dont need if you are just getting started), but once you figure it out the free tier is well... free. Keep in mind you will likely need to upgrade from free tier however if you wish to run production nodes.
@@ -128,6 +130,9 @@ Reload ssh
 
 Access root with new user
 `sudo -s`
+
+## Change SSH Port
+I recommend following ATS guide here - https://www.atsocy.com/new-to-crypto-set-up-zenon-network-node
 
 ## Set up firewall and fail2ban
 
